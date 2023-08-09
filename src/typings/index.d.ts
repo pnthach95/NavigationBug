@@ -7,7 +7,11 @@ type AppStateProps = {
 type ActionTypes = {type: 'SWITCH_THEME'};
 
 type RootStackParamList = {
-  screen: undefined;
+  screen1: undefined;
+  screen2: undefined;
 };
 
-type ScreenProps = StackScreenProps<RootStackParamList, 'screen'>;
+type ScreenProps<T extends keyof RootStackParamList> = StackScreenProps<
+  RootStackParamList,
+  T
+>;
